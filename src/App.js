@@ -1,8 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Greeting from './components/Greeting';
 
-function App() {
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
+import fetchRandomGreeting from './api/fetchGreetings';
+import Greetings from './components/Greetings';
+
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchRandomGreeting());
+  }, [dispatch]);
+
   return (
     <Router>
       <Switch>
@@ -10,6 +18,6 @@ function App() {
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;
