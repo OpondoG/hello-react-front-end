@@ -1,7 +1,6 @@
-
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import fetchRandomGreeting from './api/fetchGreetings';
 import Greetings from './components/Greetings';
 
@@ -14,7 +13,7 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Greeting} />
+        <Route exact path="/" component={Greetings} />
       </Switch>
     </Router>
   );
